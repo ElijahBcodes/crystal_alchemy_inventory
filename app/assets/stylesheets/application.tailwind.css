@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+
+
+
+
+
+.trix-content {
+  line-height: 1.5;
+}
 
 @layer components {
   .btn-primary {
@@ -10,7 +17,7 @@
   }
 }
 
-*/
+b
 
  @layer components {
     @font-face {
@@ -19,4 +26,3 @@
     }
  }
 
-@import 'actiontext.css';
