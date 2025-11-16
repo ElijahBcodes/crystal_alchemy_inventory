@@ -1,23 +1,22 @@
+
 <div class="min-h-screen bg-gradient-to-br from-purple-100 via-blue-50 to-purple-50">
-  <div class="w-full max-w-7xl mx-auto px-4 py-8">
+  <div class=" max-w-7xl mx-auto px-4 py-8">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-100 mb-5 text-green-700 font-medium rounded-lg inline-block">
         <%= notice %>
       </p>
     <% end %>
 
-    <h1 class="text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-8">
+    <% content_for :title, "Crystal Alchemy" %>
+
+    <h1 class="font-[<june_in_rock>] text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-8 text-center">
       Products
     </h1>
 
-    <div id="products" class="w-full space-y-4 mb-6">
-      <% @products.each do |product| %>
-        <div class="w-full">
-          <%= render product %>
-        </div>
-      <% end %>
-    </div>
-
-    <%= link_to "New product", new_product_path, class: "inline-block px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition" %>
+<div id="products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+  <% @products.each do |product| %>
+    <%= render product %>
+  <% end %>
+</div>
   </div>
 </div>
