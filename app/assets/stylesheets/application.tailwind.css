@@ -1,5 +1,3 @@
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 
@@ -7,22 +5,11 @@
 
 
 
-.trix-content {
-  line-height: 1.5;
-}
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
 
-b
 
- @layer components {
-    @font-face {
-        font-family: "June In Rock";
-        src: url(/fonts/june_in_rock);
-    }
- }
+
+
+
+
 
