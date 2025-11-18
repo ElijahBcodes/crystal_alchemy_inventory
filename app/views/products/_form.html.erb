@@ -1,9 +1,10 @@
 <%= form_with(model: product) do |form| %>
   <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
+      <h2 class="font-bold text-lg mb-2">
+        <%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:
+      </h2>
+      <ul class="list-disc list-inside">
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,27 +12,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-6">
+    <%= form.label :name, "Product Name", class: "block text-gray-700 font-semibold mb-2 text-lg" %>
+    <%= form.text_field :name, class: "w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition shadow-sm", placeholder: "Enter product name" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.rich_text_area :description %>
+  <div class="mb-6">
+    <%= form.label :description, "Description", class: "block text-gray-700 font-semibold mb-2 text-lg" %>
+    <%= form.rich_text_area :description, class: "w-full min-h-[200px] px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition shadow-sm" %>
   </div>
 
-  <div>
-    <%= form.label :images, style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
+  <div class="mb-6">
+    <%= form.label :images, "Product Images", class: "block text-gray-700 font-semibold mb-2 text-lg" %>
+    <div class="relative">
+      <%= form.file_field :images, multiple: true, class: "w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-purple-50 file:text-purple-700 file:font-semibold hover:file:bg-purple-100" %>
+    </div>
+    <p class="text-sm text-gray-500 mt-2">Upload multiple images (JPG, PNG)</p>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="mb-8">
+    <%= form.label :price, "Price ($)", class: "block text-gray-700 font-semibold mb-2 text-lg" %>
+    <%= form.text_field :price, class: "w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition shadow-sm", placeholder: "0.00" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex gap-4">
+    <%= form.submit "Save Product", class: "flex-1 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-bold rounded-xl hover:from-purple-700 hover:to-blue-700 transition transform hover:scale-105 cursor-pointer shadow-lg" %>
   </div>
 <% end %>
