@@ -1,24 +1,19 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
+<%= link_to product_path(product), class: "block h-full" do %>
+  <div id="<%= dom_id product %>" class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col">
+    
+    <h3 class="text-2xl font-bold text-gray-800 mb-4"><%= product.name %></h3>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Images:</strong>
-    <% product.images.each do |image| %>
-      <div><%= link_to image.filename, image %></div>
+    <% if product.images.attached? %>
+      <div class="flex gap-2 mb-4 h-32">
+        <% product.images.first(3).each do |image| %>
+          <%= image_tag image, class: "w-40 h-32 rounded-lg flex-shrink-0 hover:brightness-75" %>
+        <% end %>
+      </div>
     <% end %>
-  </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-</div>
+    <p class="text-2xl font-bold text-purple-600 mt-auto">
+      $<%= number_with_precision(product.price, precision: 2) %>
+    </p>
+    
+  </div>
+<% end %>

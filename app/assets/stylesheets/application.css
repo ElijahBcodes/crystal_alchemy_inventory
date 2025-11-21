@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @layer components {
+    @font-face {
+        font-family: "June In Rock";
+        src: url(/fonts/june_in_rock);
+    }
+ }
